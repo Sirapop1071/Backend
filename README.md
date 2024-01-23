@@ -1,14 +1,14 @@
 #BackEnd Management API <br>
 ===========<br><br>
-![getweb](img_backend/getweb.jpg)<br>
+![web](img_backend/web.jpg)<br>
 / <br> <br>
-![getdata](img_backend/getdata.jpg)<br>
+![get_data](img_backend/get_data.jpg)<br>
 /students #GET <br> <br>
-![getdatabyid](img_backend/getdatabyid.jpg)<br>
+![get_data_id](img_backend/get_data_id.jpg)<br>
 /students/<int:std_id> #GET <br> <br>
-![postdata](img_backend/postdata.jpg)<br>
+![post_data](img_backend/post_data.jpg)<br>
 /students #POST <br> <br>
-![updatedata](img_backend/updatedata.jpg)<br>
+![update_data](img_backend/update_data.jpg)<br>
 /students/<int:std_id> #PUT <br> <br>
-![deletedata](img_backend/deletedata.jpg)<br>
+![delete_data](img_backend/delete_data.jpg)<br>
 /students/<int:std_id> #DELETE <br> <br>
