@@ -56,9 +56,16 @@ def update_std(std_id):
         return jsonify(std),200
     else :
         return jsonify({"error":"Student not found"}),404
- 
-   
 
+@app.route("/students/<int:std_id>",methods = ["DELETE"])
+@basic_auth.required
+def delete_std(std_id):
+    std = next((b for b in students if b["id"] == std_id),None)
+    if std :
+        students.remove(std)
+        return jsonify({"message":"Student deleted successfully"}),200
+    else:
+        return jsonify({"error":"Student not found"}),404
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0",port=5000,debug=True)
