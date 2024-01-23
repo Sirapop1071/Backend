@@ -30,7 +30,7 @@ def get_std(std_id):
         return jsonify({"error":"Student not found"}),404
 
 @app.route("/students",methods=["POST"])
-#@basic_auth.required
+@basic_auth.required
 def create_std():
     data = request.get_json()
     new_std={
@@ -45,8 +45,19 @@ def create_std():
     else:
         students.append(new_std)
         return jsonify(new_std),200
-    
-    
+
+@app.route("/students/<int:std_id>",methods = ["PUT"])
+@basic_auth.required
+def update_std(std_id):
+    std = next((b for b in students if b["id"] == std_id),None)
+    if std:
+        data = request.get_json()
+        std.update(data)
+        return jsonify(std),200
+    else :
+        return jsonify({"error":"Student not found"}),404
+ 
+   
 
 
 if __name__ == "__main__":
