@@ -29,6 +29,24 @@ def get_std(std_id):
     else:
         return jsonify({"error":"Student not found"}),404
 
+@app.route("/students",methods=["POST"])
+#@basic_auth.required
+def create_std():
+    data = request.get_json()
+    new_std={
+        "id":data["id"],
+        "Name":data["Name"],
+        "major":data["major"],
+        "gpa":data["gpa"]
+    }
+    
+    if any(students["id"] == new_std["id"] for students in students):
+        return jsonify({"error":"Cannot create new studen"}),500
+    else:
+        students.append(new_std)
+        return jsonify(new_std),200
+    
+    
 
 
 if __name__ == "__main__":
