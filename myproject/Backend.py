@@ -66,6 +66,8 @@ def delete_std(std_id):
         return jsonify({"message":"Student deleted successfully"}),200
     else:
         return jsonify({"error":"Student not found"}),404
-
+@app.route("/student",methods = ["POOST"])
+def test():
+    return
 if __name__ == "__main__":
     app.run(host="0.0.0.0",port=5000,debug=True)
